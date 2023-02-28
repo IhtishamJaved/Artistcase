@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="facebook_app_id">3054044738189303</string>
+<string name="fb_login_protocol_scheme">fb3054044738189303</string>
+<string name="facebook_client_token">dc7d28adf8afb1affb136c136dbcc6cb</string>
+<string name="app_name">Artistcase</string>
+
+
+</resources>

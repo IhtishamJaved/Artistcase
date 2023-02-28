@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "116878620944",
+    "project_id": "socail-apppppp",
+    "storage_bucket": "socail-apppppp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116878620944:android:4d9f5b73f32b51a7d8cd95",
+        "android_client_info": {
+          "package_name": "com.amit.socialappflutterss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116878620944-23cgc1c3bc5ssakipag9pomgv3c76b33.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amit.socialappflutterss",
+            "certificate_hash": "a9cce59ae996686b4509e437bc3a3bf2c4e1833b"
+          }
+        },
+        {
+          "client_id": "116878620944-7i3mfeq52ndosbeh4ad718v2avbamrem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2GAExVspk6AeMvnxdf4mE7VIpWK439xI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116878620944-7i3mfeq52ndosbeh4ad718v2avbamrem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

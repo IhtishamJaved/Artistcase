@@ -1,0 +1,91 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+
+import '../constant/sizeconfig.dart';
+
+class ProfileMusicPlayerItem extends StatefulWidget {
+  final String musicUrl;
+  ProfileMusicPlayerItem({Key key, @required this.musicUrl}) : super(key: key);
+
+  @override
+  State<ProfileMusicPlayerItem> createState() => _ProfileMusicPlayerItemState();
+}
+
+class _ProfileMusicPlayerItemState extends State<ProfileMusicPlayerItem> {
+  bool playing = false;
+  IconData btnIcon = Icons.play_arrow;
+
+  String currentSong = "";
+
+  AudioPlayer _audioPlayer = AudioPlayer(mode: PlayerMode.MEDIA_PLAYER);
+
+  bool isPlaying = false;
+
+  Duration musicDuration = Duration();
+
+  Duration musicPosition = Duration();
+
+  playMusic(String url) async {
+    if (isPlaying && currentSong != url) {
+      _audioPlayer.pause();
+      int result = await _audioPlayer.play(url);
+      if (result == 1) {
+        setState(() {
+          currentSong = url;
+        });
+      }
+    } else if (!isPlaying) {
+      int result = await _audioPlayer.play(url);
+      if (result == 1) {
+        setState(() {
+          isPlaying = true;
+          btnIcon = Icons.pause;
+        });
+      }
+    }
+
+    _audioPlayer.onDurationChanged.listen((event) {
+      setState(() {
+        musicDuration = event;
+      });
+    });
+
+    _audioPlayer.onAudioPositionChanged.listen((event) {
+      setState(() {
+        musicPosition = event;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return Container(
+      width: (size.width / 100) * 90,
+      //height: (size.height / 100) * 14,
+      margin: EdgeInsets.only(
+          top: 1 * SizeConfig.heightMultiplier,
+          bottom: 1 * SizeConfig.heightMultiplier),
+      decoration: BoxDecoration(
+        //color: Colors.blue,
+        borderRadius: BorderRadius.circular(26),
+        border: Border.all(color: Color.fromRGBO(255, 255, 255, 0.5)),
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding:
+                EdgeInsets.only(left: 15, top: 1 * SizeConfig.heightMultiplier),
+            child: Row(
+              children: [
+                SizedBox(width: (size.width / 100) * 0.5),
+                Image.asset("images/album_cover1.png"),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
